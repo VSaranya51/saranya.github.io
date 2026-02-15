@@ -7,12 +7,35 @@
 
   <!-- Your existing CSS -->
   <link rel="stylesheet" href="index.css" />
+
+  <!-- Page-specific override (fix header overlap issue) -->
+  <style>
+    .case-header {
+      height: auto !important;
+      min-height: unset !important;
+      background: none !important;
+      background-attachment: initial !important;
+    }
+
+    .case-header .header__text {
+      position: static !important;
+      top: auto !important;
+      transform: none !important;
+      padding: 6rem 0 !important;
+    }
+
+    #prd {
+      margin-top: 0 !important;
+    }
+  </style>
 </head>
 
 <body>
-  <!-- Simple header (matches your CSS layout) -->
-  <header class="header" style="height: 30vh; background-image: none;">
+
+  <!-- Header -->
+  <header class="header case-header">
     <div class="row">
+
       <nav class="nav">
         <ul class="nav__items">
           <li class="nav__item"><a class="nav__link" href="index.html">Home</a></li>
@@ -22,24 +45,35 @@
         </ul>
       </nav>
 
-      <div class="header__text" style="position: static; transform: none; padding: 6rem 0;">
-        <p style="margin:0; font-size: var(--font-size-normal); color: var(--white-1);">Case Study 1</p>
-        <h3 class="heading-primary" style="margin-top: 1.5rem;">AI-Assisted Sales Recommendation</h3>
-        <p style="margin-top: 5rem; max-width: var(--container-normal-width);">
-          Sample PRD (anonymised) for an internal sales quotation platform that automates itinerary pricing
-          and supports data-driven package recommendations.
+      <div class="header__text">
+        <p style="margin:0; font-size: var(--font-size-normal); color: var(--white-1);">
+          Case Study 1
         </p>
 
-        <!-- <a class="btn btn--pink" href="#prd">View PRD</a> -->
-        <a class="link__text" href="index.html#work">Back to Portfolio <span>&rarr;</span></a>
+        <h1 class="heading-primary" style="margin-top: 1.5rem;">
+          AI-Assisted Sales Recommendation
+        </h1>
+
+        <p style="margin-top: 2rem; max-width: var(--container-normal-width);">
+          Sample PRD (anonymised) for an internal sales quotation platform
+          that automates itinerary pricing and supports data-driven package
+          recommendations.
+        </p>
+
+        <a class="link__text" href="index.html#work">
+          Back to Portfolio <span>&rarr;</span>
+        </a>
       </div>
+
     </div>
   </header>
 
-  <!-- PRD -->
-  <section style="margin-top:10rem;" id="prd">
+
+  <!-- PRD SECTION -->
+  <section id="prd">
     <div class="row">
-      <!-- <h2>PRD — AI-Assisted Sales Recommendation Feature</h2> -->
+
+      <h2>PRD — AI-Assisted Sales Recommendation Feature</h2>
 
       <p><strong>Document type:</strong> Sample PRD (anonymised)</p>
       <p><strong>Product:</strong> Internal Sales Quotation Platform</p>
@@ -47,40 +81,38 @@
 
       <h3>1. Overview</h3>
       <p>
-        Sales teams use the platform to assemble tailored golf travel packages by combining travel dates,
-        golf course and tee-time availability, accommodation, and transportation for both domestic and
-        international travellers, including golfers and non-golfers. The product supports multiple offerings
-        such as inbound and outbound golf tours, golf breaks, and holiday packages.
+        Sales teams assemble tailored golf travel packages by combining travel dates,
+        golf course and tee-time availability, accommodation, and transportation for both
+        domestic and international travellers. The product supports inbound and outbound
+        golf tours, golf breaks, and holiday packages.
       </p>
       <p>
-        An AI-assisted recommendation capability suggests the most suitable package combinations based on
-        customer requirements including group size, budget, destination, dates, and preferences. These
-        recommendations support sales decision-making by enabling quick validation and comparison of options,
-        improving consistency and significantly reducing quote turnaround and conversion time.
+        An AI-assisted recommendation capability suggests the most suitable package
+        combinations based on group size, budget, destination, dates, and preferences.
+        This improves consistency and significantly reduces quote turnaround time.
       </p>
 
       <h3>2. Problem Statement</h3>
       <p>
-        Pricing and availability for golf courses, accommodation, and transportation are spread across
-        disconnected sources such as PDFs, spreadsheets, websites, and emails. Sales teams must manually
-        reconcile this information to create quotes and itineraries, making the process slow and error-prone.
+        Pricing and availability are sourced from disconnected channels such as PDFs,
+        spreadsheets, websites, and emails. Sales teams manually reconcile this data,
+        making the process slow and error-prone.
       </p>
       <p>
-        Frequent changes in customer requirements or availability lead to repeated quote revisions, further
-        increasing turnaround time. The absence of a unified system for pricing, availability, and
-        recommendations reduces sales efficiency and delays conversion.
+        Changes in customer requirements lead to repeated quote revisions, further
+        extending turnaround time and delaying conversion.
       </p>
 
       <h3>3. Goal</h3>
       <p>
-        Enable sales teams to generate automated total pricing for itineraries and receive data-driven
-        recommendations, reducing quotation time and accelerating conversion.
+        Enable sales teams to generate automated total pricing and receive
+        data-driven recommendations to accelerate conversion.
       </p>
 
       <h3>4. Success Metrics</h3>
       <ul class="work__list">
         <li>Reduction in average time to generate a quote</li>
-        <li>Adoption rate of AI recommendations by sales users</li>
+        <li>Adoption rate of AI recommendations</li>
         <li>Reduction in number of quote revisions</li>
       </ul>
 
@@ -93,8 +125,8 @@
       <h3>6. In Scope</h3>
       <ul class="work__list">
         <li>Capture structured customer requirements</li>
-        <li>Generate automated itinerary pricing and ranked recommendations based on availability, pricing, and suitability patterns</li>
-        <li>Display recommendations with clear explanation indicators to support sales decision-making</li>
+        <li>Generate automated itinerary pricing</li>
+        <li>Rank recommendations based on suitability</li>
       </ul>
 
       <h3>7. Out of Scope</h3>
@@ -104,152 +136,100 @@
         <li>Payment or booking confirmation</li>
       </ul>
 
-      <h3>8. Assumptions &amp; Risks</h3>
+      <h3>8. Assumptions & Risks</h3>
+
       <p><strong>Assumptions</strong></p>
       <ul class="work__list">
-        <li>Required pricing data is available and accessible from source systems</li>
-        <li>Tee times, accommodation, and transportation availability can be reliably retrieved or validated</li>
+        <li>Pricing data is accessible from source systems</li>
+        <li>Availability can be reliably retrieved</li>
       </ul>
 
       <p><strong>Risks</strong></p>
       <ul class="work__list">
-        <li>Over-reliance on recommendations without sufficient contextual review</li>
-        <li>Data quality issues, including incorrect or outdated rates</li>
-        <li>Availability mismatches across golf courses, accommodation, and transportation providers</li>
+        <li>Over-reliance on recommendations</li>
+        <li>Data quality issues</li>
+        <li>Availability mismatches</li>
       </ul>
 
-      <h3>9. Acceptance Criteria (High Level)</h3>
+      <h3>9. Acceptance Criteria</h3>
       <ul class="work__list">
-        <li>Recommendations align with provided customer inputs and defined business rules</li>
-        <li>Pricing is accurately calculated based on available and validated rate data</li>
-        <li>System responses meet agreed performance thresholds to support efficient quote generation</li>
+        <li>Recommendations align with inputs and business rules</li>
+        <li>Pricing is accurately calculated</li>
+        <li>System responses meet performance thresholds</li>
       </ul>
 
       <a class="btn" href="#stories">Jump to User Stories</a>
+
     </div>
   </section>
 
-  <!-- User Stories -->
+
+  <!-- USER STORIES -->
   <section id="stories">
     <div class="row">
+
       <h2>User Stories</h2>
 
-      <h3>User Story 1 — Capture Customer Requirements</h3>
-      <p><strong>As a</strong> Sales Executive<br />
-        <strong>I want</strong> to capture structured customer details, travel dates, and itinerary preferences<br />
-        <strong>So that</strong> automated total pricing for the itinerary can be generated
+      <h3>User Story 1 — Capture Requirements</h3>
+      <p><strong>As a</strong> Sales Executive<br>
+         <strong>I want</strong> structured customer inputs<br>
+         <strong>So that</strong> pricing can be generated automatically
       </p>
-      <p><strong>Acceptance Criteria</strong></p>
-      <ul class="work__list">
-        <li><strong>Given</strong> I enter customer details including group size, travel dates, selected golf courses, and accommodation preferences</li>
-        <li><strong>When</strong> I submit the form</li>
-        <li><strong>Then</strong> the system validates and securely stores the inputs for quotation generation</li>
-      </ul>
 
-      <h3>User Story 2 — Select Product Type (Inbound / Outbound)</h3>
-      <p><strong>As a</strong> Sales Executive<br />
-        <strong>I want</strong> to select whether the booking is an inbound or outbound package<br />
-        <strong>So that</strong> the system displays the appropriate form fields and requirements for the selected product type
-      </p>
-      <p><strong>Acceptance Criteria</strong></p>
-      <ul class="work__list">
-        <li><strong>Given</strong> I am creating a new quotation</li>
-        <li><strong>When</strong> I select inbound or outbound as the product type</li>
-        <li><strong>Then</strong> the system displays the relevant fields required for that package</li>
-        <li><strong>And</strong> only applicable inputs can be entered for the selected product type</li>
-      </ul>
+      <h3>User Story 2 — Select Product Type</h3>
+      <p>Inbound / Outbound selection dynamically adjusts form fields.</p>
 
-      <h3>User Story 3 — Review Itinerary &amp; Pricing Before Export</h3>
-      <p><strong>As a</strong> Sales Executive<br />
-        <strong>I want</strong> to review the generated itinerary and total pricing<br />
-        <strong>So that</strong> I can validate details and make adjustments before exporting the quote
-      </p>
-      <p><strong>Acceptance Criteria</strong></p>
-      <ul class="work__list">
-        <li><strong>Given</strong> an itinerary and pricing have been generated</li>
-        <li><strong>When</strong> I open the review view</li>
-        <li><strong>Then</strong> I can see a consolidated summary of itinerary components and total pricing</li>
-        <li><strong>And</strong> I can make edits before finalising the quotation</li>
-      </ul>
+      <h3>User Story 3 — Review Pricing</h3>
+      <p>Users can validate and edit itinerary before export.</p>
 
-      <h3>User Story 4 — Explore Options via AI Chat Recommendation</h3>
-      <p><strong>As a</strong> Sales Executive<br />
-        <strong>I want</strong> to explore itinerary and pricing options using an AI-assisted chat interface<br />
-        <strong>So that</strong> I can quickly evaluate alternatives and respond to customer queries
-      </p>
-      <p><strong>Acceptance Criteria</strong></p>
-      <ul class="work__list">
-        <li><strong>Given</strong> customer requirements have been captured</li>
-        <li><strong>When</strong> I interact with the AI chat to explore options (e.g. alternative courses, dates, or budgets)</li>
-        <li><strong>Then</strong> the system suggests relevant itinerary options based on availability, pricing, and suitability</li>
-        <li><strong>And</strong> recommendations are contextual and aligned with existing customer inputs</li>
-        <li><strong>And</strong> I can apply suggested options to the quotation for further review</li>
-      </ul>
+      <h3>User Story 4 — AI Chat Exploration</h3>
+      <p>Explore alternative options via AI-assisted interface.</p>
 
-      <h3>User Story 5 — Export Quotation as PDF or Excel</h3>
-      <p><strong>As a</strong> Sales Executive<br />
-        <strong>I want</strong> to export the finalised itinerary and pricing as a PDF or Excel file<br />
-        <strong>So that</strong> I can share the quotation with customers and internal stakeholders
-      </p>
-      <p><strong>Acceptance Criteria</strong></p>
-      <ul class="work__list">
-        <li><strong>Given</strong> the itinerary and pricing have been reviewed and approved</li>
-        <li><strong>When</strong> I choose to export the quotation</li>
-        <li><strong>Then</strong> the system generates a downloadable PDF or Excel file</li>
-        <li><strong>And</strong> the exported document includes itinerary details, pricing breakdown, and totals</li>
-        <li><strong>And</strong> the format is consistent and suitable for customer communication</li>
-      </ul>
+      <h3>User Story 5 — Export Quotation</h3>
+      <p>Export final itinerary as PDF or Excel.</p>
 
       <a class="btn" href="#roadmap">View Roadmap</a>
+
     </div>
   </section>
 
-  <!-- Roadmap -->
+
+  <!-- ROADMAP -->
   <section id="roadmap">
     <div class="row">
-      <h2>Sample Roadmap (Now / Next / Later)</h2>
 
-      <h3>NOW — MVP (Enable Fast Quoting)</h3>
-      <p><strong>Outcome:</strong> Sales teams can generate accurate quotes quickly</p>
+      <h2>Product Roadmap (Now / Next / Later)</h2>
+
+      <h3>NOW — MVP</h3>
       <ul class="work__list">
-        <li>Structured customer requirement capture</li>
-        <li>Inbound / outbound package selection</li>
-        <li>Automated itinerary pricing</li>
-        <li>Basic AI-assisted recommendations</li>
-        <li>Itinerary &amp; pricing review</li>
-        <li>Export quotation (PDF / Excel)</li>
+        <li>Requirement capture</li>
+        <li>Pricing engine</li>
+        <li>Basic AI recommendations</li>
+        <li>PDF / Excel export</li>
       </ul>
 
-      <h3>NEXT — Optimise (Improve Decision Quality)</h3>
-      <p><strong>Outcome:</strong> Fewer revisions, faster customer responses</p>
+      <h3>NEXT — Optimise</h3>
       <ul class="work__list">
-        <li>AI chat to explore alternative options</li>
+        <li>AI chat exploration</li>
+        <li>Comparison views</li>
         <li>Recommendation explanations</li>
-        <li>Comparison view for itineraries</li>
       </ul>
 
-      <h3>LATER — Scale (Intelligence &amp; Growth)</h3>
-      <p><strong>Outcome:</strong> Scalable, data-driven sales platform</p>
+      <h3>LATER — Scale</h3>
       <ul class="work__list">
-        <li>Advanced AI learning models</li>
+        <li>Advanced AI models</li>
         <li>CRM integration</li>
-        <li>Conversion analytics dashboard</li>
+        <li>Analytics dashboard</li>
       </ul>
 
       <p style="margin-top: var(--gutter-medium);">
-        <em>Note: This case study is anonymised. Specific partner names, commercial terms, and metrics are omitted for confidentiality.</em>
+        <em>This case study is anonymised for confidentiality.</em>
       </p>
 
       <a class="btn btn--pink" href="index.html#work">Back to Work</a>
-      <a class="link__text" href="#prd">Back to Top <span>&uarr;</span></a>
+
     </div>
   </section>
 
-  <!-- Optional back-to-top button (if you have arrow image, otherwise remove this block) -->
-  <!--
-  <a class="back-to-top" href="#prd" aria-label="Back to top">
-    <img class="back-to-top__image" src="./images/arrow-up.svg" alt="Back to top" />
-  </a>
-  -->
 </body>
 </html>
