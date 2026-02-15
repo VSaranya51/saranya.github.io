@@ -441,7 +441,7 @@ body:not(.user-is-tabbing) a:focus {
 /* --------------------------------------- */
 
 .work__box {
-    display: flex;
+    /* display: flex; */
     align-items: center;
 }
 
