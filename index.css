@@ -611,3 +611,48 @@ body:not(.user-is-tabbing) a:focus {
         padding: var(--gutter-medium) 0;
     } 
 }
+/* --------------------------------------- */
+/* ----- Skills Cards ----- */
+/* --------------------------------------- */
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--gutter-normal);
+}
+
+.skills-card {
+  background: rgba(229, 229, 230, 0.06); /* subtle card on black */
+  border: var(--border-light);
+  border-radius: 14px;
+  padding: var(--gutter-normal);
+  transition: transform .2s ease, border-color .2s ease;
+}
+
+.skills-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 50, 88, 0.7); /* pink tint */
+}
+
+.skills-card h3 {
+  margin-bottom: var(--gutter-small);
+}
+
+.skills-card p {
+  margin: 0;
+  color: var(--white-1);
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
